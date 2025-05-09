@@ -23,20 +23,26 @@
       text-align: center;
       color: white;
       animation: fadeIn 2s ease-in;
+      position: relative;
     }
     header h1 {
       font-family: 'Marck Script', cursive;
       font-size: 4rem;
       margin: 0;
+      opacity: 0;
+      animation: fadeInUp 2s ease-in-out forwards;
     }
     header p {
       font-size: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 3s ease-in-out forwards;
     }
     section {
       padding: 60px 20px;
       max-width: 800px;
       margin: 0 auto;
-      animation: fadeInUp 1s ease-in forwards;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in-out forwards;
     }
     h2 {
       font-family: 'Marck Script', cursive;
@@ -67,37 +73,57 @@
       0% {opacity: 0; transform: translateY(20px);}
       100% {opacity: 1; transform: translateY(0);}
     }
+    @keyframes slideIn {
+      from {transform: translateX(100%); opacity: 0;}
+      to {transform: translateX(0); opacity: 1;}
+    }
+    /* Параллакс эффект для фона */
+    .parallax {
+      background-image: url('https://images.unsplash.com/photo-1526045478516-99145907023c');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
   </style>
 </head>
 <body>
-  <header>
+  <header class="parallax">
     <h1>Илья & Мария</h1>
     <p>7 августа, 16:00 — Санаторий "Красный Холм"</p>
   </header>
 
-  <section>
+  <section class="fade-in">
     <h2>О нас</h2>
     <p>Мы рады поделиться с вами особенным днем нашей жизни. Давайте вместе отпразднуем любовь и создание новой семьи!</p>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Информация</h2>
     <p><strong>Дата:</strong> 7 августа, четверг<br>
     <strong>Время:</strong> 16:00<br>
     <strong>Место:</strong> Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская, д. 2</p>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Программа</h2>
     <ul>
-      <li>16:00 — Церемония</li>
-      <li>17:00 — Фотосессия и фуршет</li>
-      <li>18:30 — Праздничный ужин</li>
-      <li>20:00 — Танцы и веселье</li>
+      <li>16:00 — Начало свадьбы</li>
+      <li>17:00 — Развлекательная программа</li>
+      <li>18:00 — Тосты</li>
+      <li>19:00 — Фотосессия и фуршет</li>
+      <li>20:00 — Вынос торта</li>
+      <li>21:00 — Караоке</li>
+      <li>22:00 — Танцы и веселье</li>
+      <li>23:00 — Окончание мероприятия</li>
     </ul>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Подтверждение участия</h2>
     <form>
       <input type="text" name="name" placeholder="Ваше имя" required>
@@ -107,9 +133,12 @@
     </form>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>Контакты</h2>
-    <p>Если у вас есть вопросы, свяжитесь с нами по телефону или в мессенджерах. Мы будем рады помочь!</p>
+    <p><strong>Номер жениха:</strong> +7 (996) 926-06-16<br>
+    <strong>Почта жениха:</strong> <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
+    <p><strong>Номер невесты:</strong> +7 (980) 704-76-84<br>
+    <strong>Почта невесты:</strong> <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
   </section>
 </body>
 </html>
