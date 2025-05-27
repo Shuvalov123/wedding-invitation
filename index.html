@@ -2,94 +2,52 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Приглашение на свадьбу</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
       color: #333;
-      overflow-x: hidden;
     }
     header {
-      position: relative;
       text-align: center;
-      padding: 50px 20px 80px;
+      padding: 50px 20px;
       background-image: url('https://images.unsplash.com/photo-1525097487452-6278ff080c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
       background-position: center;
       color: white;
-      font-family: 'Playfair Display', serif;
     }
     header h1 {
       font-size: 3rem;
-      margin: 0 0 10px;
+      margin: 0;
+      font-family: 'Playfair Display', serif;
     }
     header p {
       font-size: 1.5rem;
-      margin: 4px 0;
-    }
-    #lang-switcher {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255 255 255 / 0.8);
-      border: none;
-      border-radius: 25px;
-      padding: 8px 16px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: 'Roboto', sans-serif;
-      color: #c2185b;
-      transition: background 0.3s ease;
-    }
-    #lang-switcher:hover,
-    #lang-switcher:focus {
-      background: #c2185b;
-      color: white;
-      outline: none;
     }
     section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
     }
-    .info, .program, .contacts, .dress-code {
+    .info, .program, .contacts, .dresscode, .rsvp {
       background: #ffffffd9;
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       margin-bottom: 30px;
-      font-family: 'Roboto', sans-serif;
-      color: #333;
     }
-    .info h2, .program h2, .contacts h2, .dress-code h2 {
+    .info h2, .program h2, .contacts h2, .dresscode h2, .rsvp h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
-      margin-top: 0;
-    }
-    .program ul {
-      padding-left: 20px;
-      margin-top: 15px;
-    }
-    .program li {
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-    .dress-code p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      font-style: italic;
-      color: #880e4f;
     }
     .countdown-section {
       text-align: center;
       padding: 60px 20px;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
-      font-family: 'Segoe UI', sans-serif;
-      color: #d81b60;
     }
     #countdown {
       display: flex;
@@ -97,6 +55,8 @@
       gap: 20px;
       font-size: 1.8rem;
       font-weight: bold;
+      color: #d81b60;
+      font-family: 'Segoe UI', sans-serif;
     }
     #countdown div {
       background: #fce4ec;
@@ -104,7 +64,6 @@
       padding: 10px 15px;
       box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
       transition: transform 0.3s ease;
-      width: 80px;
     }
     #countdown div:hover {
       transform: scale(1.05);
@@ -115,56 +74,43 @@
       margin-bottom: 5px;
       color: #880e4f;
     }
+    .dresscode p {
+      font-style: italic;
+    }
+    .rsvp-form input,
+    .rsvp-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .rsvp-form button {
+      background: #c2185b;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .rsvp-form button:hover {
+      background: #ad1457;
+    }
+    .form-success {
+      color: green;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
       color: #888;
-    }
-    /* Лепестки роз */
-    .petal {
-      position: fixed;
-      top: -50px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rose_Petal.svg/1024px-Rose_Petal.svg.png') no-repeat center/contain;
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-      opacity: 0.7;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-    /* Музыка */
-    #music-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #c2185b;
-      border: none;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(194, 24, 91, 0.6);
-      transition: background 0.3s ease;
-      z-index: 1000;
-    }
-    #music-toggle:hover,
-    #music-toggle:focus {
-      background: #880e4f;
-      outline: none;
     }
   </style>
 </head>
@@ -173,48 +119,67 @@
     <h1>Приглашение на свадьбу</h1>
     <p>Ильи и Марии</p>
     <p>7 августа, четверг, 16:00</p>
-    <button id="lang-switcher" aria-label="Переключить язык">Удмуртский</button>
   </header>
 
-  <section class="countdown-section" aria-label="Обратный отсчёт до свадьбы">
-    <h2 id="countdown-title">До свадьбы осталось:</h2>
-    <div id="countdown" role="timer" aria-live="polite">
-      <div><span id="days">--</span><div id="days-label">дней</div></div>
-      <div><span id="hours">--</span><div id="hours-label">часов</div></div>
-      <div><span id="minutes">--</span><div id="minutes-label">минут</div></div>
-      <div><span id="seconds">--</span><div id="seconds-label">секунд</div></div>
+  <section class="countdown-section">
+    <h2 style="font-size: 2.5rem; color: #c2185b; margin-bottom: 20px; font-family: 'Playfair Display', serif;">
+      До свадьбы осталось:
+    </h2>
+    <div id="countdown">
+      <div><span id="days">--</span><div>дней</div></div>
+      <div><span id="hours">--</span><div>часов</div></div>
+      <div><span id="minutes">--</span><div>минут</div></div>
+      <div><span id="seconds">--</span><div>секунд</div></div>
     </div>
   </section>
 
   <section class="info">
-    <h2 id="place-title">Место проведения</h2>
-    <p id="place-text">Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2</p>
+    <h2>Место проведения</h2>
+    <p>Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2</p>
   </section>
 
   <section class="program">
-    <h2 id="program-title">Программа</h2>
+    <h2>Программа</h2>
     <ul>
-      <li id="prog-1">16:00 Начало свадьбы</li>
-      <li id="prog-2">17:00 Развлекательная программа</li>
-      <li id="prog-4">18:00 Тосты</li>
-      <li id="prog-6">19:00 Фотосессия и фуршет</li>
-      <li id="prog-5">20:00 Вынос торта</li>
-      <li id="prog-7">21:00 Караоке</li>
-      <li id="prog-8">22:00 Танцы и веселье</li>
+      <li>16:00 Начало свадьбы</li>
+      <li>17:00 Развлекательная программа</li>
+      <li>18:00 Тосты</li>
+      <li>19:00 Фотосессия и фуршет</li>
+      <li>20:00 Вынос торта</li>
+      <li>21:00 Караоке</li>
+      <li>22:00 Танцы и веселье</li>
       <li>23:00 Окончание мероприятия</li>
     </ul>
   </section>
 
-  <section class="dress-code" aria-label="Дресс-код">
+  <section class="dresscode">
     <h2>Дресс-код</h2>
-    <p>Любая одежда, главное — чтобы вам было удобно и комфортно наслаждаться этим особенным днём. Пусть ваш стиль отражает вашу индивидуальность, а свобода движений подарит радость танцев и общения!</p>
+    <p>Одежда — любая, главное, чтобы вам было удобно и комфортно. Главное — ваше настроение и улыбка. Мы рады каждому, кто будет с нами в этот день!</p>
+  </section>
+
+  <section class="rsvp">
+    <h2 id="rsvp-title">Подтвердите участие</h2>
+    <p id="rsvp-text">Пожалуйста, заполните форму ниже. Нам важно знать, кто будет с нами в этот день 💌</p>
+    <form action="https://formspree.io/f/mgvkzbgo" method="POST" class="rsvp-form">
+      <label>Имя:<br />
+        <input type="text" name="Имя" required>
+      </label><br /><br />
+      <label>Количество гостей:<br />
+        <input type="number" name="Количество гостей" min="1" max="10" required>
+      </label><br /><br />
+      <label>Комментарий:<br />
+        <textarea name="Комментарий" rows="3"></textarea>
+      </label><br /><br />
+      <button type="submit">Отправить</button>
+    </form>
+    <p class="form-success" style="display: none;" id="form-success-text">Спасибо за подтверждение! 🌸</p>
   </section>
 
   <section class="contacts">
-    <h2 id="contacts-title">Контакты</h2>
-    <p><strong id="groom-title">Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br />
+    <h2>Контакты</h2>
+    <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br>
     <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
-    <p><strong id="bride-title">Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br />
+    <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br>
     <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
   </section>
 
@@ -222,122 +187,7 @@
     &copy; 2025 Илья и Мария. Все права защищены.
   </footer>
 
-  <button id="music-toggle" aria-pressed="false">Включить музыку</button>
-  <audio id="background-music" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/28/audio_3db7d8b79f.mp3?filename=acoustic-wedding-music-6270.mp3"></audio>
-
   <script>
-    // Тексты для переключения языков (русский и удмуртский)
-    const texts = {
-      ru: {
-        countdownTitle: 'До свадьбы осталось:',
-        daysLabel: 'дней',
-        hoursLabel: 'часов',
-        minutesLabel: 'минут',
-        secondsLabel: 'секунд',
-        placeTitle: 'Место проведения',
-        placeText: 'Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2',
-        programTitle: 'Программа',
-        programItems: [
-          '16:00 Начало свадьбы',
-          '17:00 Развлекательная программа',
-          '18:00 Тосты',
-          '19:00 Фотосессия и фуршет',
-          '20:00 Вынос торта',
-          '21:00 Караоке',
-          '22:00 Танцы и веселье',
-          '23:00 Окончание мероприятия'
-        ],
-        dressCodeTitle: 'Дресс-код',
-        dressCodeText: 'Любая одежда, главное — чтобы вам было удобно и комфортно наслаждаться этим особенным днём. Пусть ваш стиль отражает вашу индивидуальность, а свобода движений подарит радость танцев и общения!',
-        contactsTitle: 'Контакты',
-        groomTitle: 'Жених:',
-        groomPhone: '+7 (996) 926-06-16',
-        groomEmail: 'ilasuvalov1@gmail.com',
-        brideTitle: 'Невеста:',
-        bridePhone: '+7 (980) 704-76-84',
-        brideEmail: 'glebusheva2005@gmail.com',
-        inviteNames: 'Ильи и Марии',
-        musicOn: 'Выключить музыку',
-        musicOff: 'Включить музыку',
-        langSwitcherLabelRu: 'Русский',
-        langSwitcherLabelUd: 'Удмуртский'
-      },
-      udm: {
-        countdownTitle: 'Пӧръёслысь сюрес ужыш:',
-        daysLabel: 'пӧръёслысь',
-        hoursLabel: 'шӧрысь',
-        minutesLabel: 'минутъяс',
-        secondsLabel: 'секундъяс',
-        placeTitle: 'Пайремъёсыз огаз',
-        placeText: 'Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2',
-        programTitle: 'Программа',
-        programItems: [
-          '16:00 Пайремъёсыз начёсы',
-          '17:00 Шужан программа',
-          '18:00 Тостъяс',
-          '19:00 Фотосессия да ужа',
-          '20:00 Тортъёс вылэмъёс',
-          '21:00 Караоке',
-          '22:00 Ужысь да веселье',
-          '23:00 Пайремъёсыз окончание'
-        ],
-        dressCodeTitle: 'Кӧйгазъёсын',
-        dressCodeText: 'Шудон кӧйгазъёсын, гожъясь — удмурт кылъянын сюрес пыръяськорясь лэсьтон. Вылыс улюлысь кутсконъя, да удмурт кылъянын сюрес пыръяськоръяс шуыны кылъяны!',
-        contactsTitle: 'Контакты',
-        groomTitle: 'Жених:',
-        groomPhone: '+7 (996) 926-06-16',
-        groomEmail: 'ilasuvalov1@gmail.com',
-        brideTitle: 'Невеста:',
-        bridePhone: '+7 (980) 704-76-84',
-        brideEmail: 'glebusheva2005@gmail.com',
-        inviteNames: 'Ильи и Марии',
-        musicOn: 'Музыка выкшет',
-        musicOff: 'Музыка вошет',
-        langSwitcherLabelRu: 'Русский',
-        langSwitcherLabelUd: 'Удмуртский'
-      }
-    };
-
-    let currentLang = 'ru';
-
-    // Функция для обновления текста на странице
-    function updateTexts() {
-      const t = texts[currentLang];
-      document.getElementById('countdown-title').textContent = t.countdownTitle;
-      document.getElementById('days-label').textContent = t.daysLabel;
-      document.getElementById('hours-label').textContent = t.hoursLabel;
-      document.getElementById('minutes-label').textContent = t.minutesLabel;
-      document.getElementById('seconds-label').textContent = t.secondsLabel;
-      document.getElementById('place-title').textContent = t.placeTitle;
-      document.getElementById('place-text').textContent = t.placeText;
-      document.getElementById('program-title').textContent = t.programTitle;
-      const progItems = t.programItems;
-      const programList = document.querySelector('.program ul');
-      programList.innerHTML = '';
-      progItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        programList.appendChild(li);
-      });
-      document.querySelector('.dress-code h2').textContent = t.dressCodeTitle;
-      document.querySelector('.dress-code p').textContent = t.dressCodeText;
-      document.getElementById('contacts-title').textContent = t.contactsTitle;
-      document.getElementById('groom-title').textContent = t.groomTitle;
-      document.getElementById('bride-title').textContent = t.brideTitle;
-      document.querySelector('header p').textContent = t.inviteNames;
-      // Кнопка переключения языка
-      document.getElementById('lang-switcher').textContent = currentLang === 'ru' ? t.langSwitcherLabelUd : t.langSwitcherLabelRu;
-      // Музыкальная кнопка
-      musicToggle.textContent = isPlaying ? t.musicOn : t.musicOff;
-    }
-
-    // Переключение языка по клику
-    document.getElementById('lang-switcher').addEventListener('click', () => {
-      currentLang = currentLang === 'ru' ? 'udm' : 'ru';
-      updateTexts();
-    });
-
-    // Обратный отсчёт
     const weddingDate = new Date("2025-08-07T16:00:00");
 
     function updateCountdown() {
@@ -345,7 +195,7 @@
       const diff = weddingDate - now;
 
       if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = currentLang === 'ru' ? "Свадьба уже началась!" : "Пайремъёсыз ужыш луозысь!";
+        document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
         return;
       }
 
@@ -359,45 +209,9 @@
       document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
       document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
     }
+
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // Музыка
-    const music = document.getElementById('background-music');
-    const musicToggle = document.getElementById('music-toggle');
-    let isPlaying = false;
-
-    musicToggle.addEventListener('click', () => {
-      if (isPlaying) {
-        music.pause();
-        isPlaying = false;
-      } else {
-        music.play();
-        isPlaying = true;
-      }
-      updateTexts();
-    });
-
-    // Падающие лепестки
-    function createPetal() {
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = Math.random() * window.innerWidth + 'px';
-      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
-      petal.style.opacity = Math.random() * 0.7 + 0.3;
-      petal.style.width = petal.style.height = (15 + Math.random() * 15) + 'px';
-      document.body.appendChild(petal);
-
-      setTimeout(() => {
-        petal.remove();
-      }, 10000);
-    }
-
-    setInterval(createPetal, 500);
-
-    // Инициализация текста
-    updateTexts();
   </script>
-
 </body>
 </html>
