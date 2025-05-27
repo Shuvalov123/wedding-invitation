@@ -1,201 +1,57 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Приглашение на свадьбу</title>
-  <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+<section class="countdown-section" style="text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #fff0f6, #ffffff);">
+  <h2 style="font-size: 2.5rem; color: #c2185b; margin-bottom: 20px; font-family: 'Playfair Display', serif;">
+    До свадьбы осталось:
+  </h2>
+  <div id="countdown" style="display: flex; justify-content: center; gap: 20px; font-size: 1.8rem; font-weight: bold; color: #d81b60; font-family: 'Segoe UI', sans-serif;">
+    <div><span id="days">--</span><div>дней</div></div>
+    <div><span id="hours">--</span><div>часов</div></div>
+    <div><span id="minutes">--</span><div>минут</div></div>
+    <div><span id="seconds">--</span><div>секунд</div></div>
+  </div>
+</section>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Georgia', serif;
-      background: url('https://example.com/path-to-your-wedding-background-image.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #403636;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+<script>
+  const weddingDate = new Date("2025-08-07T16:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
+      return;
     }
 
-    header, section {
-      padding: 60px 20px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-    h1, h2, h3 {
-      color: #d6336c;
-    }
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+  }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
-    .card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
-      padding: 30px;
-      margin: 20px auto;
-      max-width: 700px;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    a {
-      color: #d6336c;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .confirmation-form {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-      animation: fadeInUp 1s ease-out;
-      transition: transform 0.3s ease;
-    }
-
-    .confirmation-form:hover {
-      transform: scale(1.02);
-    }
-
-    .confirmation-form input,
-    .confirmation-form textarea,
-    .confirmation-form button {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    .confirmation-form button {
-      background-color: #ff5c8a;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .confirmation-form button:hover {
-      background-color: #e14c78;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .thank-you-popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-      text-align: center;
-      animation: fadeInUp 0.5s ease;
-    }
-
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 998;
-    }
-
-    .countdown {
-      text-align: center;
-      margin: 30px auto;
-      padding: 25px;
-      max-width: 500px;
-      background: #fff4f8;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255, 92, 138, 0.2);
-      font-family: 'Arial', sans-serif;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .countdown h2 {
-      color: #ff5c8a;
-      margin-bottom: 10px;
-    }
-
-    .countdown .time {
-      font-size: 26px;
-      color: #333;
-      font-weight: bold;
-    }
-
-    .petal {
-      position: fixed;
-      top: -50px;
-      background-image: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/rose-2696080_1280.png');
-      background-size: contain;
-      width: 30px;
-      height: 30px;
-      z-index: 1000;
-      pointer-events: none;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-  </style>
-</head>
-<body>
-  <audio autoplay loop hidden>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-  </audio>
-
-  <header>
-    <h2 style="margin-bottom: 10px; font-weight: normal;">Приглашение на свадьбу</h2>
-    <h1>Илья и Мария</h1>
-    <p>7 августа, четверг, 16:00</p>
-    <div class="countdown">
-      <h2>До свадьбы осталось:</h2>
-      <div class="time" id="days-remaining">Загрузка...</div>
-    </div>
-  </header>
-
-  <script>
-    function createPetal() {
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      document.body.appendChild(petal);
-
-      setTimeout(() => {
-        petal.remove();
-      }, 5000);
-    }
-
-    setInterval(createPetal, 300);
-  </script>
-
-</body>
-</html>
+<style>
+  #countdown div {
+    background: #fce4ec;
+    border-radius: 12px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
+    transition: transform 0.3s ease;
+  }
+  #countdown div:hover {
+    transform: scale(1.05);
+  }
+  #countdown span {
+    display: block;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    color: #880e4f;
+  }
+</style>
