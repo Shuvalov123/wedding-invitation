@@ -6,7 +6,6 @@
   <title>Приглашение на свадьбу Ильи и Марии</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
-    /* Основные стили */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -15,7 +14,6 @@
       overflow-x: hidden;
       transition: background 0.5s, color 0.5s;
     }
-
     header {
       text-align: center;
       padding: 50px 20px 40px;
@@ -25,19 +23,16 @@
       position: relative;
       z-index: 10;
     }
-
     header h1 {
       font-size: 3rem;
       margin: 0 0 10px;
       text-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
-
     header p {
       font-size: 1.5rem;
       margin: 5px 0;
       text-shadow: 0 0 6px rgba(0,0,0,0.2);
     }
-
     section {
       max-width: 720px;
       margin: 30px auto;
@@ -49,7 +44,6 @@
       line-height: 1.5;
       color: #4b004b;
     }
-
     section h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
@@ -58,36 +52,29 @@
       border-bottom: 2px solid #d81b60;
       padding-bottom: 8px;
     }
-
     ul {
       padding-left: 1.3rem;
       margin: 0;
       list-style: disc inside;
     }
-
     ul li {
       margin-bottom: 12px;
     }
-
     .dress-code p {
       font-style: italic;
       font-weight: 500;
       color: #6a0650;
     }
-
-    /* Форма подтверждения */
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
       font-size: 1rem;
     }
-
     form label {
       font-weight: 600;
       color: #880e4f;
     }
-
     form input, form select {
       padding: 10px 15px;
       border-radius: 10px;
@@ -97,11 +84,9 @@
       outline-offset: 2px;
       transition: border-color 0.3s;
     }
-
     form input:focus, form select:focus {
       border-color: #c2185b;
     }
-
     form button {
       padding: 14px 20px;
       background: #c2185b;
@@ -112,26 +97,20 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-
     form button:hover {
       background: #880e4f;
     }
-
-    /* Контакты */
     .contacts a {
       color: #c2185b;
       text-decoration: none;
       transition: color 0.3s;
       word-break: break-word;
     }
-
     .contacts a:hover {
       color: #880e4f;
       text-decoration: underline;
     }
-
-    /* Кнопки переключения ночного режима и музыки */
-    #darkModeToggle, #musicToggle {
+    #darkModeToggle {
       position: fixed;
       top: 15px;
       right: 15px;
@@ -148,41 +127,9 @@
       z-index: 999;
       user-select: none;
     }
-
-    #musicToggle {
-      right: 65px;
-    }
-
-    #darkModeToggle:hover, #musicToggle:hover {
+    #darkModeToggle:hover {
       background: #880e4f;
     }
-
-    /* Бегущая чиби-пара */
-    #chibi {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 130px;
-      z-index: 500;
-      user-select: none;
-      pointer-events: none;
-      animation: runCycle 2s steps(8) infinite;
-    }
-
-    /* Падающие лепестки роз */
-    .petal {
-      position: fixed;
-      width: 18px;
-      height: 18px;
-      background: url('https://i.postimg.cc/SxYnTqFg/petal.png') no-repeat center center / contain;
-      pointer-events: none;
-      opacity: 0.8;
-      user-select: none;
-      animation-timing-function: linear;
-      will-change: transform, top, left;
-      z-index: 50;
-    }
-
     /* Свечи */
     .candle {
       position: fixed;
@@ -199,56 +146,47 @@
       user-select: none;
       pointer-events: none;
     }
-
     .candle:first-child {
       left: 15px;
     }
     .candle:last-child {
       right: 15px;
     }
-
     @keyframes flicker {
       0% { opacity: 0.8; box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7), inset 0 0 10px 2px #ffcee9;}
       50% { opacity: 1; box-shadow: 0 0 25px 8px rgba(255, 105, 180, 1), inset 0 0 15px 5px #ffcee9;}
       100% { opacity: 0.8; box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7), inset 0 0 10px 2px #ffcee9;}
     }
-
     /* Ночной режим */
     body.dark-mode {
       background: linear-gradient(135deg, #2c0b2e, #440d3f);
       color: #f0d6e6;
       transition: background 0.5s, color 0.5s;
     }
-
     body.dark-mode section {
       background: rgba(50, 0, 40, 0.85);
       color: #f0d6e6;
       box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
     }
-
     body.dark-mode header {
       background: linear-gradient(135deg, #440d3f, #270027);
       color: #f8c9e8;
       text-shadow: 0 0 12px rgba(255, 150, 190, 0.7);
     }
-
     body.dark-mode form input, 
     body.dark-mode form select {
       background: #55003a;
       border-color: #d48cb1;
       color: #f9d7e5;
     }
-
     body.dark-mode form input::placeholder,
     body.dark-mode form select::placeholder {
       color: #f2cde3;
     }
-
     body.dark-mode form input:focus,
     body.dark-mode form select:focus {
       border-color: #f7a9c0;
     }
-
     body.dark-mode form button {
       background: #d48cb1;
       color: #3b0030;
@@ -257,84 +195,77 @@
       background: #b05a88;
       color: #f6e0f0;
     }
-
     /* Адаптивность */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.2rem;
       }
-
       header p {
         font-size: 1.2rem;
       }
-
       section {
         margin: 20px 15px;
         padding: 20px 20px;
         font-size: 1rem;
       }
-
       section h2 {
         font-size: 1.6rem;
       }
-
       form button {
         padding: 12px 16px;
         font-size: 0.95rem;
       }
-
       #chibi {
         width: 90px;
         bottom: 15px;
         left: 8px;
       }
-
       .candle:first-child {
         left: 8px;
       }
-
       .candle:last-child {
         right: 8px;
       }
     }
-
     @media (max-width: 480px) {
       header h1 {
         font-size: 1.7rem;
       }
-
       header p {
         font-size: 1rem;
       }
-
-      section {
-        margin: 15px 10px;
-        padding: 15px 15px;
-        font-size: 0.9rem;
-      }
-
-      section h2 {
-        font-size: 1.4rem;
-      }
-
-      form button {
-        font-size: 0.9rem;
-        padding: 10px 14px;
-      }
-
       #chibi {
         width: 70px;
-        bottom: 12px;
+        bottom: 10px;
         left: 5px;
       }
-
       .candle:first-child {
         left: 5px;
       }
-
       .candle:last-child {
         right: 5px;
       }
+    }
+    /* Падающие лепестки — CSS с SVG */
+    .petal {
+      pointer-events: none;
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2s-3 4-3 7 1 5 3 7 3-4 3-7-1-5-3-7z"/></svg>') no-repeat center / contain;
+      opacity: 0.7;
+      animation-name: fall, sway;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(15px); }
     }
   </style>
 </head>
@@ -400,55 +331,12 @@
     &copy; 2025 Илья и Мария. Все права защищены.
   </footer>
 
-  <!-- Картинка бегущей чиби-пары -->
+  <!-- Бегущая чиби-пара -->
   <img id="chibi" src="https://i.postimg.cc/1RSmkZqY/chibi-running.gif" alt="Бегущая чиби-пара" />
 
   <!-- Свечи -->
-  <div class="candle" style="left: 15px;"></div>
-  <div class="candle" style="right: 15px;"></div>
-
-  <!-- Скрипт для падающих лепестков роз -->
-  <script>
-    const petalCount = 25;
-    const petals = [];
-
-    function random(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    function createPetal() {
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = random(0, window.innerWidth) + 'px';
-      petal.style.top = random(-100, -20) + 'px';
-      petal.style.animationDuration = random(7, 15) + 's';
-      petal.style.animationDelay = random(0, 15) + 's';
-      petal.style.opacity = (random(5, 10) / 10).toFixed(1);
-      document.body.appendChild(petal);
-      petals.push(petal);
-    }
-
-    function animatePetals() {
-      petals.forEach(petal => {
-        let top = parseFloat(petal.style.top);
-        if (top > window.innerHeight) {
-          petal.style.top = random(-100, -20) + 'px';
-          petal.style.left = random(0, window.innerWidth) + 'px';
-          petal.style.opacity = (random(5, 10) / 10).toFixed(1);
-          petal.style.animationDuration = random(7, 15) + 's';
-        } else {
-          petal.style.top = (top + 1) + 'px';
-          petal.style.left = (parseFloat(petal.style.left) + Math.sin(top / 20)) + 'px';
-        }
-      });
-      requestAnimationFrame(animatePetals);
-    }
-
-    for (let i = 0; i < petalCount; i++) {
-      createPetal();
-    }
-    animatePetals();
-  </script>
+  <div class="candle"></div>
+  <div class="candle"></div>
 
   <!-- Скрипт ночного режима -->
   <script>
@@ -473,6 +361,17 @@
     if(localStorage.getItem('darkMode') === 'enabled') {
       document.body.classList.add('dark-mode');
       toggleDark.textContent = '☀️';
+    }
+
+    // Падающие лепестки
+    const petalCount = 25;
+    for(let i=0; i<petalCount; i++){
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * window.innerWidth + 'px';
+      petal.style.animationDuration = (7 + Math.random()*8) + 's';
+      petal.style.animationDelay = (Math.random() * 15) + 's';
+      document.body.appendChild(petal);
     }
   </script>
 </body>
