@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Приглашение на свадьбу Ильи и Марии</title>
+  <title>Приглашение на свадьбу</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
-    /* Базовые стили */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
       color: #333;
       overflow-x: hidden;
-      position: relative;
     }
     header {
       text-align: center;
@@ -22,7 +20,6 @@
       background-size: cover;
       background-position: center;
       color: white;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
       position: relative;
       z-index: 2;
     }
@@ -30,55 +27,40 @@
       font-size: 3rem;
       margin: 0;
       font-family: 'Playfair Display', serif;
-      user-select: none;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
     header p {
       font-size: 1.5rem;
-      margin: 8px 0 0 0;
-      user-select: none;
-    }
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      position: relative;
-      z-index: 2;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
     section {
       padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
       background: #ffffffd9;
       border-radius: 20px;
-      box-shadow: 0 8px 18px rgba(178, 34, 94, 0.35);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       margin-bottom: 30px;
-      user-select: none;
+      position: relative;
+      z-index: 2;
     }
-    h2 {
+    section h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-      text-shadow: 0 1px 3px rgba(194, 24, 91, 0.7);
+      margin-bottom: 15px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .program ul {
+      padding-left: 20px;
+      list-style-type: disc;
       font-size: 1.1rem;
-      line-height: 1.6;
       color: #555;
-    }
-    ul li {
-      padding: 8px 0;
-      border-bottom: 1px solid #f3c0d6;
-    }
-    ul li:last-child {
-      border: none;
     }
     .countdown-section {
       text-align: center;
+      padding: 60px 20px;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
-      padding-bottom: 60px;
+      position: relative;
+      z-index: 2;
     }
     #countdown {
       display: flex;
@@ -87,201 +69,137 @@
       font-size: 1.8rem;
       font-weight: bold;
       color: #d81b60;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      user-select: none;
+      font-family: 'Segoe UI', sans-serif;
     }
     #countdown div {
       background: #fce4ec;
       border-radius: 12px;
-      padding: 15px 20px;
-      box-shadow: 0 4px 12px rgba(220, 20, 60, 0.2);
+      padding: 10px 15px;
+      box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
       transition: transform 0.3s ease;
-      min-width: 80px;
     }
     #countdown div:hover {
       transform: scale(1.05);
     }
     #countdown span {
       display: block;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       margin-bottom: 5px;
       color: #880e4f;
     }
-
-    /* Форма RSVP */
-    form {
-      max-width: 100%;
-      font-size: 1.1rem;
-      color: #444;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    input[type="text"],
-    input[type="email"] {
-      width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 2px solid #e0a7bd;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-      box-sizing: border-box;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus {
-      outline: none;
-      border-color: #c2185b;
-      box-shadow: 0 0 8px rgba(194, 24, 91, 0.5);
-    }
-    .radio-group {
-      margin-bottom: 20px;
-    }
-    .radio-group label {
-      font-weight: 500;
-      margin-right: 20px;
-      cursor: pointer;
-      user-select: none;
-    }
-    button {
-      background-color: #b2225e;
-      color: white;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(178, 34, 94, 0.35);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      display: block;
-      margin: 0 auto;
-      user-select: none;
-    }
-    button:hover:not(:disabled) {
-      background-color: #7a0d3f;
-      box-shadow: 0 10px 22px rgba(122, 13, 63, 0.6);
-    }
-    button:disabled {
-      background-color: #d7a9b8;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-    .success-message, .error-message {
-      font-weight: 700;
+    footer {
       text-align: center;
-      font-size: 1.1rem;
-      margin-top: 12px;
-      user-select: none;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+      position: relative;
+      z-index: 2;
     }
-    .success-message {
-      color: #3a6d3a;
-      animation: fadeIn 1s ease forwards;
-    }
-    .error-message {
-      color: #b22222;
-      animation: fadeIn 1s ease forwards;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    /* Контакты */
-    .contacts p {
-      font-size: 1.1rem;
-      margin: 8px 0;
-      line-height: 1.4;
-      color: #444;
-      user-select: none;
-    }
-    .contacts strong {
-      color: #b2225e;
-    }
-
-    /* Кнопка музыки */
-    #music-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    /* Кнопки переключения языка и музыки */
+    #lang-switcher, #music-toggle {
+      cursor: pointer;
       background: #c2185b;
       color: white;
       border: none;
-      border-radius: 30px;
-      padding: 10px 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(194, 24, 91, 0.7);
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
+      border-radius: 25px;
+      padding: 8px 15px;
+      font-size: 1rem;
+      margin: 10px 10px 30px 10px;
+      font-family: 'Roboto', sans-serif;
       transition: background-color 0.3s ease;
-      user-select: none;
-      z-index: 1000;
     }
-    #music-toggle:hover {
-      background-color: #7a0d3f;
-      box-shadow: 0 6px 14px rgba(122, 13, 63, 0.9);
+    #lang-switcher:hover, #music-toggle:hover {
+      background-color: #880e4f;
     }
-
+    /* Гостевая книга */
+    .guestbook {
+      max-width: 600px;
+      margin: 30px auto 60px auto;
+      background: #ffffffd9;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 25px 30px;
+      position: relative;
+      z-index: 2;
+    }
+    .guestbook h2 {
+      font-family: 'Playfair Display', serif;
+      color: #c2185b;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .guestbook label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #444;
+      font-size: 1rem;
+    }
+    .guestbook input[type="text"],
+    .guestbook input[type="email"],
+    .guestbook textarea,
+    .guestbook select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      resize: vertical;
+    }
+    .guestbook button {
+      background: #c2185b;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    .guestbook button:hover {
+      background-color: #880e4f;
+    }
+    .success-msg, .error-msg {
+      display: none;
+      text-align: center;
+      padding: 12px;
+      border-radius: 15px;
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .success-msg {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .error-msg {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
     /* Лепестки роз */
     .petal {
       position: fixed;
-      top: -50px;
-      width: 30px;
-      height: 30px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Red_rose_petals_01.svg/1024px-Red_rose_petals_01.svg.png');
-      background-size: contain;
-      background-repeat: no-repeat;
+      top: -30px;
+      width: 25px;
+      height: 25px;
+      background: url('https://i.postimg.cc/c1RTnzM3/rose-petal.png') no-repeat center/contain;
       pointer-events: none;
       opacity: 0.8;
       animation-name: fall;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
-      z-index: 1;
-      user-select: none;
-      filter: drop-shadow(0 0 3px rgba(194, 24, 91, 0.8));
     }
-
     @keyframes fall {
       0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0.8;
       }
       100% {
-        transform: translateY(110vh) rotate(360deg);
+        transform: translateY(100vh) rotate(360deg);
         opacity: 0;
-      }
-    }
-
-    /* Адаптивность */
-    @media (max-width: 600px) {
-      header {
-        padding: 40px 15px;
-        border-radius: 0;
-      }
-      main {
-        margin: 20px auto;
-        padding: 0 10px;
-      }
-      section {
-        padding: 25px 15px;
-      }
-      form {
-        max-width: 100%;
-      }
-      #countdown {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-      #countdown div {
-        min-width: 60px;
-        padding: 15px 12px;
-        font-size: 1.3rem;
-      }
-      #countdown span {
-        font-size: 2rem;
       }
     }
   </style>
@@ -289,162 +207,273 @@
 <body>
 
   <header>
-    <h1>Приглашение на свадьбу Ильи и Марии</h1>
-    <p>7 августа 2025, четверг, 16:00</p>
+    <h1 id="title">Приглашение на свадьбу</h1>
+    <p id="couple">Ильи и Марии</p>
+    <p id="date-time">7 августа, четверг, 16:00</p>
   </header>
 
-  <main>
-    <section class="countdown-section" aria-label="Обратный отсчет до свадьбы">
-      <h2>До свадьбы осталось:</h2>
-      <div id="countdown" role="timer" aria-live="polite" aria-atomic="true">
-        <div><span id="days">--</span>дней</div>
-        <div><span id="hours">--</span>часов</div>
-        <div><span id="minutes">--</span>минут</div>
-        <div><span id="seconds">--</span>секунд</div>
-      </div>
-    </section>
+  <div style="text-align:center;">
+    <button id="lang-switcher" aria-pressed="false">Русский</button>
+    <button id="music-toggle" aria-pressed="false">Включить музыку</button>
+  </div>
 
-    <section class="info" aria-label="Место проведения свадьбы">
-      <h2>Место проведения</h2>
-      <p>Санаторий <strong>"Красный Холм"</strong>, Ярославская область, п. Красный Холм, ул. Волжская, д. 2</p>
-    </section>
+  <section class="countdown-section">
+    <h2 id="countdown-title">До свадьбы осталось:</h2>
+    <div id="countdown">
+      <div><span id="days">--</span><div id="days-label">дней</div></div>
+      <div><span id="hours">--</span><div id="hours-label">часов</div></div>
+      <div><span id="minutes">--</span><div id="minutes-label">минут</div></div>
+      <div><span id="seconds">--</span><div id="seconds-label">секунд</div></div>
+    </div>
+  </section>
 
-    <section class="program" aria-label="Программа свадьбы">
-      <h2>Программа</h2>
-      <ul>
-        <li>16:00 — Начало свадьбы</li>
-        <li>17:00 — Развлекательная программа</li>
-        <li>18:00 — Тосты</li>
-        <li>19:00 — Фотосессия и фуршет</li>
-        <li>20:00 — Вынос торта</li>
-        <li>21:00 — Караоке</li>
-        <li>22:00 — Танцы и веселье</li>
-        <li>23:00 — Окончание мероприятия</li>
-      </ul>
-    </section>
+  <section class="info">
+    <h2 id="place-title">Место проведения</h2>
+    <p id="place-text">Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2</p>
+  </section>
 
-    <section class="rsvp" aria-label="Форма подтверждения участия">
-      <h2>Подтвердите, пожалуйста, ваше участие</h2>
-      <form id="rsvp-form" action="https://formspree.io/f/mgvkzbgo" method="POST" novalidate>
-        <label for="name">Ваше имя *</label>
-        <input type="text" id="name" name="name" required placeholder="Иван Иванов" autocomplete="name" />
+  <section class="program">
+    <h2 id="program-title">Программа</h2>
+    <ul>
+      <li id="prog-1">16:00 Начало свадьбы</li>
+      <li id="prog-5">17:00 Лёгкие закуски и напитки</li>
+      <li id="prog-7">18:00 Тосты</li>
+      <li id="prog-3">19:00 Дресс-код: мы рады видеть вас в любом наряде, который подарит вам комфорт и уверенность в себе. Главное — чтобы одежда была удобной, позволяла свободно двигаться и приносила радость. Пусть ваш стиль отражает ваше настроение и индивидуальность — будь то лёгкое платье, изящный костюм или что-то совершенно особенное. Важно, чтобы вы чувствовали себя свободно и наслаждались праздником в полной мере!</li>
+      <li id="prog-8">20:00 Переключение языка сайта (Русский/Удмуртский)</li>
+      <li id="prog-2">21:00 Караоке</li>
+      <li id="prog-4">22:00 Танцы и веселье</li>
+      <li id="prog-6">23:00 Окончание мероприятия</li>
+    </ul>
+  </section>
 
-        <label for="email">Электронная почта *</label>
-        <input type="email" id="email" name="_replyto" required placeholder="example@mail.com" autocomplete="email" />
-
-        <div class="radio-group" role="radiogroup" aria-labelledby="attendance-label">
-          <span id="attendance-label" style="font-weight:600; margin-bottom: 10px; display:block;">Вы придёте? *</span>
-          <label><input type="radio" name="attendance" value="Да" required /> Да</label>
-          <label><input type="radio" name="attendance" value="Нет" /> Нет</label>
-          <label><input type="radio" name="attendance" value="Возможно" /> Возможно</label>
-        </div>
-
-        <button type="submit" disabled>Отправить</button>
-
-        <div class="success-message" role="alert" aria-live="polite" style="display:none; margin-top: 10px;">
-          Спасибо! Ваш ответ получен.
-        </div>
-        <div class="error-message" role="alert" aria-live="assertive" style="display:none; margin-top: 10px;">
-          Ошибка при отправке. Попробуйте ещё раз.
-        </div>
-      </form>
-    </section>
-
-    <section class="contacts" aria-label="Контактная информация">
-      <h2>Контакты</h2>
-      <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br />
+  <section class="contacts">
+    <h2 id="contacts-title">Контакты</h2>
+    <p><strong id="groom-title">Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br />
       <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
-      <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br />
+    <p><strong id="bride-title">Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br />
       <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
-    </section>
-  </main>
+  </section>
 
-  <footer style="text-align:center; padding:20px 0; font-size:0.9rem; color:#a9445a; user-select:none; position: relative; z-index: 2;">
+  <section class="guestbook" aria-label="Гостевая книга">
+    <h2 id="guestbook-title">Подтверждение участия</h2>
+    <form id="guestbook-form" action="https://formspree.io/f/mgvkzbgo" method="POST">
+      <label for="name" id="label-name">Ваше имя:</label>
+      <input type="text" id="name" name="name" required placeholder="Введите имя" />
+      <label for="email" id="label-email">Email для ответа:</label>
+      <input type="email" id="email" name="email" required placeholder="Введите email" />
+      <label for="attending" id="label-attending">Вы придёте?</label>
+      <select id="attending" name="attending" required>
+        <option value="" disabled selected>Выберите вариант</option>
+        <option value="yes">Да, с радостью приду</option>
+        <option value="no">К сожалению, не смогу</option>
+      </select>
+      <button type="submit" id="submit-btn">Отправить</button>
+      <p class="success-msg" id="success-msg" role="alert">Спасибо! Ваш ответ отправлен.</p>
+      <p class="error-msg" id="error-msg" role="alert">Что-то пошло не так. Попробуйте ещё раз.</p>
+    </form>
+  </section>
+
+  <footer>
     &copy; 2025 Ильи и Марии. Все права защищены.
   </footer>
 
-  <!-- Музыка с кнопкой -->
-  <audio id="wedding-music" loop preload="auto" crossorigin="anonymous">
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d054c5e877.mp3?filename=beautiful-melody-13291.mp3" type="audio/mpeg" />
+  <audio id="background-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/02/24/audio_2ccf3942c5.mp3?filename=lovely-day-10021.mp3" type="audio/mpeg" />
     Ваш браузер не поддерживает аудио.
   </audio>
 
-  <button id="music-toggle" aria-pressed="false" aria-label="Включить или выключить музыку">Включить музыку</button>
-
   <script>
-    // Обратный отсчет
-    const weddingDate = new Date("2025-08-07T16:00:00");
+    const texts = {
+      ru: {
+        title: "Приглашение на свадьбу",
+        couple: "Ильи и Марии",
+        dateTime: "7 августа, четверг, 16:00",
+        countdownTitle: "До свадьбы осталось:",
+        daysLabel: "дней",
+        hoursLabel: "часов",
+        minutesLabel: "минут",
+        secondsLabel: "секунд",
+        placeTitle: "Место проведения",
+        placeText: 'Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2',
+        programTitle: "Программа",
+        prog1: "16:00 Начало свадьбы",
+        prog5: "17:00 Лёгкие закуски и напитки",
+        prog7: "18:00 Тосты",
+        prog3: "19:00 Дресс-код: мы рады видеть вас в любом наряде, который подарит вам комфорт и уверенность в себе. Главное — чтобы одежда была удобной, позволяла свободно двигаться и приносила радость. Пусть ваш стиль отражает ваше настроение и индивидуальность — будь то лёгкое платье, изящный костюм или что-то совершенно особенное. Важно, чтобы вы чувствовали себя свободно и наслаждались праздником в полной мере!",
+        prog8: "20:00 Переключение языка сайта (Русский/Удмуртский)",
+        prog2: "21:00 Караоке",
+        prog4: "22:00 Танцы и веселье",
+        prog6: "23:00 Окончание мероприятия",
+        contactsTitle: "Контакты",
+        groomTitle: "Жених:",
+        brideTitle: "Невеста:",
+        guestbookTitle: "Подтверждение участия",
+        labelName: "Ваше имя:",
+        labelEmail: "Email для ответа:",
+        labelAttending: "Вы придёте?",
+        submitBtn: "Отправить",
+        successMsg: "Спасибо! Ваш ответ отправлен.",
+        errorMsg: "Что-то пошло не так. Попробуйте ещё раз.",
+        langSwitch: "Русский",
+        musicOn: "Включить музыку",
+        musicOff: "Выключить музыку",
+      },
+      udm: {
+        title: "Свадьба приглашение",
+        couple: "Ильи и Марии",
+        dateTime: "7 август, четверг, 16:00",
+        countdownTitle: "Свадьба кыклысьёс:",
+        daysLabel: "пӧртъяс",
+        hoursLabel: "часъёс",
+        minutesLabel: "минутъёс",
+        secondsLabel: "секундъёс",
+        placeTitle: 'Почин',
+        placeText: 'Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2',
+        programTitle: "Программа",
+        prog1: "16:00 Свадьба ужын",
+        prog5: "17:00 Лёгкие закуски и напитки",
+        prog7: "18:00 Тостъёс",
+        prog3: "19:00 Одежда код: выльдыръёсын гостъёсъёсын ужъясько и кывлэсьтэмлыськом одежда. Главное — выльдыръёсын удобно, кывлэсьтэмлыськом, уктэмьыны пыръёслыны удмурт кылъёс. Пусть ваш стиль выражает ваше настроение и индивидуальность. Важно, чтобы вы чувствовали себя комфортно и наслаждались праздником в полной мере!",
+        prog8: "20:00 Сайт языкос переключение (Русский/Удмуртский)",
+        prog2: "21:00 Караоке",
+        prog4: "22:00 Танцы и веселье",
+        prog6: "23:00 Мероприятие кыклысь",
+        contactsTitle: "Контактъёс",
+        groomTitle: "Жених:",
+        brideTitle: "Невеста:",
+        guestbookTitle: "Участие подтверждение",
+        labelName: "Ваше имя:",
+        labelEmail: "Email для ответа:",
+        labelAttending: "Придёте?",
+        submitBtn: "Отправить",
+        successMsg: "Рахмат! Ваш ответ отправлен.",
+        errorMsg: "Что-то пошло не так. Попробуйте ещё раз.",
+        langSwitch: "Удмурт кыл",
+        musicOn: "Музыка вкл",
+        musicOff: "Музыка выкл",
+      },
+    };
+
+    let currentLang = 'ru';
+
+    // Функция переключения языка
+    function switchLanguage() {
+      const t = texts[currentLang];
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('couple').textContent = t.couple;
+      document.getElementById('date-time').textContent = t.dateTime;
+      document.getElementById('countdown-title').textContent = t.countdownTitle;
+      document.getElementById('days-label').textContent = t.daysLabel;
+      document.getElementById('hours-label').textContent = t.hoursLabel;
+      document.getElementById('minutes-label').textContent = t.minutesLabel;
+      document.getElementById('seconds-label').textContent = t.secondsLabel;
+      document.getElementById('place-title').textContent = t.placeTitle;
+      document.getElementById('place-text').textContent = t.placeText;
+      document.getElementById('program-title').textContent = t.programTitle;
+      document.getElementById('prog-1').textContent = t.prog1;
+      document.getElementById('prog-5').textContent = t.prog5;
+      document.getElementById('prog-7').textContent = t.prog7;
+      document.getElementById('prog-3').textContent = t.prog3;
+      document.getElementById('prog-8').textContent = t.prog8;
+      document.getElementById('prog-2').textContent = t.prog2;
+      document.getElementById('prog-4').textContent = t.prog4;
+      document.getElementById('prog-6').textContent = t.prog6;
+      document.getElementById('contacts-title').textContent = t.contactsTitle;
+      document.getElementById('groom-title').textContent = t.groomTitle;
+      document.getElementById('bride-title').textContent = t.brideTitle;
+      document.getElementById('guestbook-title').textContent = t.guestbookTitle;
+      document.getElementById('label-name').textContent = t.labelName;
+      document.getElementById('label-email').textContent = t.labelEmail;
+      document.getElementById('label-attending').textContent = t.labelAttending;
+      document.getElementById('submit-btn').textContent = t.submitBtn;
+      document.getElementById('success-msg').textContent = t.successMsg;
+      document.getElementById('error-msg').textContent = t.errorMsg;
+      document.getElementById('lang-switcher').textContent = currentLang === 'ru' ? texts['udm'].langSwitch : texts['ru'].langSwitch;
+      const musicToggle = document.getElementById('music-toggle');
+      musicToggle.textContent = musicPlaying ? (currentLang === 'ru' ? texts['ru'].musicOff : texts['udm'].musicOff) : (currentLang === 'ru' ? texts['ru'].musicOn : texts['udm'].musicOn);
+    }
+
+    // Переключатель языка
+    document.getElementById('lang-switcher').addEventListener('click', () => {
+      currentLang = currentLang === 'ru' ? 'udm' : 'ru';
+      switchLanguage();
+    });
+
+    // Таймер обратного отсчёта
+    const weddingDate = new Date('2025-08-07T16:00:00');
 
     function updateCountdown() {
       const now = new Date();
       const diff = weddingDate - now;
-
       if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
+        document.getElementById('countdown').textContent = currentLang === 'ru' ? 'Свадьба уже наступила!' : 'Свадьба ужын кыклысь!';
         return;
       }
-
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     }
 
-    updateCountdown();
     setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    // Включение / выключение музыки
-    const music = document.getElementById('wedding-music');
-    const musicBtn = document.getElementById('music-toggle');
+    // Музыка и кнопка
+    const music = document.getElementById('background-music');
+    const musicToggle = document.getElementById('music-toggle');
+    let musicPlaying = false;
 
-    // Автовоспроизведение музыки не всегда возможно из-за браузерных ограничений,
-    // поэтому включаем при клике пользователя
-    musicBtn.addEventListener('click', () => {
-      if (music.paused) {
-        music.play().then(() => {
-          musicBtn.textContent = 'Выключить музыку';
-          musicBtn.setAttribute('aria-pressed', 'true');
-        }).catch(() => {
-          alert('Воспроизведение музыки заблокировано браузером. Нажмите кнопку ещё раз.');
-        });
-      } else {
+    musicToggle.addEventListener('click', () => {
+      if (musicPlaying) {
         music.pause();
-        musicBtn.textContent = 'Включить музыку';
-        musicBtn.setAttribute('aria-pressed', 'false');
+      } else {
+        music.play();
       }
     });
 
-    // Валидация формы и отправка
-    const form = document.getElementById('rsvp-form');
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const successMsg = form.querySelector('.success-message');
-    const errorMsg = form.querySelector('.error-message');
+    music.addEventListener('play', () => {
+      musicPlaying = true;
+      musicToggle.textContent = currentLang === 'ru' ? texts['ru'].musicOff : texts['udm'].musicOff;
+      musicToggle.setAttribute('aria-pressed', 'true');
+    });
 
-    function validateForm() {
-      const name = form.name.value.trim();
-      const email = form._replyto.value.trim();
-      const attendance = form.attendance.value;
-      if (name && email && attendance) {
-        submitBtn.disabled = false;
-      } else {
-        submitBtn.disabled = true;
-      }
+    music.addEventListener('pause', () => {
+      musicPlaying = false;
+      musicToggle.textContent = currentLang === 'ru' ? texts['ru'].musicOn : texts['udm'].musicOn;
+      musicToggle.setAttribute('aria-pressed', 'false');
+    });
+
+    // Лепестки роз — создаём много лепестков и анимируем
+    const petalsCount = 30;
+    for (let i = 0; i < petalsCount; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (5 + Math.random() * 10) + 's';
+      petal.style.animationDelay = (Math.random() * 10) + 's';
+      petal.style.opacity = 0.5 + Math.random() * 0.5;
+      petal.style.width = (15 + Math.random() * 20) + 'px';
+      petal.style.height = petal.style.width;
+      document.body.appendChild(petal);
     }
 
-    form.addEventListener('input', validateForm);
+    // Форма: обработка отправки и отображение сообщений
+    const form = document.getElementById('guestbook-form');
+    const successMsg = document.getElementById('success-msg');
+    const errorMsg = document.getElementById('error-msg');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      submitBtn.disabled = true;
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
 
       const formData = new FormData(form);
+
       try {
         const response = await fetch(form.action, {
           method: 'POST',
@@ -454,50 +483,20 @@
           }
         });
         if (response.ok) {
-          successMsg.style.display = 'block';
           form.reset();
-          submitBtn.disabled = true;
+          successMsg.style.display = 'block';
         } else {
-          throw new Error('Ошибка сети');
+          throw new Error('Ошибка отправки');
         }
       } catch (error) {
         errorMsg.style.display = 'block';
-      } finally {
-        validateForm();
       }
     });
 
-    // Падающие лепестки роз при прокрутке
-    const petalCount = 30;
-    const petals = [];
+    // Инициализация текста на странице
+    switchLanguage();
 
-    function createPetal() {
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
-      petal.style.animationDelay = (Math.random() * 10) + 's';
-      petal.style.opacity = (0.4 + Math.random() * 0.6).toFixed(2);
-      petal.style.width = (20 + Math.random() * 20) + 'px';
-      petal.style.height = petal.style.width;
-      document.body.appendChild(petal);
-      petals.push(petal);
-    }
-
-    for (let i = 0; i < petalCount; i++) {
-      createPetal();
-    }
-
-    // При прокрутке немного меняем позицию лепестков по горизонтали для эффекта ветра
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      petals.forEach((petal, i) => {
-        const offset = (scrollY / 100 + i) % window.innerWidth;
-        petal.style.left = ((parseFloat(petal.style.left) + Math.sin(scrollY / 100 + i) * 2) % 100) + 'vw';
-      });
-    });
   </script>
-
 </body>
 </html>
 
