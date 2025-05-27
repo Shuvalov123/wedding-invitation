@@ -2,15 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Приглашение на свадьбу</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Приглашение на свадьбу Ильи и Марии</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
+    /* Базовые стили */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
       color: #333;
+      overflow-x: hidden;
+      position: relative;
     }
     header {
       text-align: center;
@@ -20,20 +23,26 @@
       background-position: center;
       color: white;
       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 2;
     }
     header h1 {
       font-size: 3rem;
       margin: 0;
       font-family: 'Playfair Display', serif;
+      user-select: none;
     }
     header p {
       font-size: 1.5rem;
       margin: 8px 0 0 0;
+      user-select: none;
     }
     main {
       max-width: 800px;
       margin: auto;
       padding: 20px;
+      position: relative;
+      z-index: 2;
     }
     section {
       padding: 40px 20px;
@@ -41,6 +50,7 @@
       border-radius: 20px;
       box-shadow: 0 8px 18px rgba(178, 34, 94, 0.35);
       margin-bottom: 30px;
+      user-select: none;
     }
     h2 {
       font-family: 'Playfair Display', serif;
@@ -78,6 +88,7 @@
       font-weight: bold;
       color: #d81b60;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
     }
     #countdown div {
       background: #fce4ec;
@@ -132,6 +143,7 @@
       font-weight: 500;
       margin-right: 20px;
       cursor: pointer;
+      user-select: none;
     }
     button {
       background-color: #b2225e;
@@ -184,6 +196,7 @@
       margin: 8px 0;
       line-height: 1.4;
       color: #444;
+      user-select: none;
     }
     .contacts strong {
       color: #b2225e;
@@ -210,6 +223,36 @@
     #music-toggle:hover {
       background-color: #7a0d3f;
       box-shadow: 0 6px 14px rgba(122, 13, 63, 0.9);
+    }
+
+    /* Лепестки роз */
+    .petal {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Red_rose_petals_01.svg/1024px-Red_rose_petals_01.svg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      opacity: 0.8;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      z-index: 1;
+      user-select: none;
+      filter: drop-shadow(0 0 3px rgba(194, 24, 91, 0.8));
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     /* Адаптивность */
@@ -246,8 +289,7 @@
 <body>
 
   <header>
-    <h1>Приглашение на свадьбу</h1>
-    <p>Илья и Мария</p>
+    <h1>Приглашение на свадьбу Ильи и Марии</h1>
     <p>7 августа 2025, четверг, 16:00</p>
   </header>
 
@@ -310,19 +352,19 @@
 
     <section class="contacts" aria-label="Контактная информация">
       <h2>Контакты</h2>
-      <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br>
+      <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br />
       <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
-      <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br>
+      <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br />
       <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
     </section>
   </main>
 
-  <footer>
-    &copy; 2025 Илья и Мария. Все права защищены.
+  <footer style="text-align:center; padding:20px 0; font-size:0.9rem; color:#a9445a; user-select:none; position: relative; z-index: 2;">
+    &copy; 2025 Ильи и Марии. Все права защищены.
   </footer>
 
   <!-- Музыка с кнопкой -->
-  <audio id="wedding-music" loop>
+  <audio id="wedding-music" loop preload="auto" crossorigin="anonymous">
     <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d054c5e877.mp3?filename=beautiful-melody-13291.mp3" type="audio/mpeg" />
     Ваш браузер не поддерживает аудио.
   </audio>
@@ -360,11 +402,16 @@
     const music = document.getElementById('wedding-music');
     const musicBtn = document.getElementById('music-toggle');
 
+    // Автовоспроизведение музыки не всегда возможно из-за браузерных ограничений,
+    // поэтому включаем при клике пользователя
     musicBtn.addEventListener('click', () => {
       if (music.paused) {
-        music.play();
-        musicBtn.textContent = 'Выключить музыку';
-        musicBtn.setAttribute('aria-pressed', 'true');
+        music.play().then(() => {
+          musicBtn.textContent = 'Выключить музыку';
+          musicBtn.setAttribute('aria-pressed', 'true');
+        }).catch(() => {
+          alert('Воспроизведение музыки заблокировано браузером. Нажмите кнопку ещё раз.');
+        });
       } else {
         music.pause();
         musicBtn.textContent = 'Включить музыку';
@@ -420,6 +467,35 @@
       }
     });
 
+    // Падающие лепестки роз при прокрутке
+    const petalCount = 30;
+    const petals = [];
+
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+      petal.style.animationDelay = (Math.random() * 10) + 's';
+      petal.style.opacity = (0.4 + Math.random() * 0.6).toFixed(2);
+      petal.style.width = (20 + Math.random() * 20) + 'px';
+      petal.style.height = petal.style.width;
+      document.body.appendChild(petal);
+      petals.push(petal);
+    }
+
+    for (let i = 0; i < petalCount; i++) {
+      createPetal();
+    }
+
+    // При прокрутке немного меняем позицию лепестков по горизонтали для эффекта ветра
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      petals.forEach((petal, i) => {
+        const offset = (scrollY / 100 + i) % window.innerWidth;
+        petal.style.left = ((parseFloat(petal.style.left) + Math.sin(scrollY / 100 + i) * 2) % 100) + 'vw';
+      });
+    });
   </script>
 
 </body>
