@@ -6,11 +6,13 @@
   <title>Приглашение на свадьбу</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
+    /* Общие стили */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
       color: #333;
+      transition: background-color 0.5s, color 0.5s;
     }
     header {
       text-align: center;
@@ -19,68 +21,37 @@
       background-size: cover;
       background-position: center;
       color: white;
+      transition: background-color 0.5s, color 0.5s;
     }
     header h1 {
       font-size: 3rem;
       margin: 0;
       font-family: 'Playfair Display', serif;
+      text-shadow: 0 0 5px rgba(0,0,0,0.7);
     }
     header p {
       font-size: 1.5rem;
+      text-shadow: 0 0 4px rgba(0,0,0,0.5);
     }
     section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
-    }
-    .info, .program, .contacts, .dresscode, .confirmation {
       background: #ffffffd9;
       border-radius: 20px;
-      padding: 30px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       margin-bottom: 30px;
+      transition: background-color 0.5s, color 0.5s;
     }
-    .info h2, .program h2, .contacts h2, .dresscode h2, .confirmation h2 {
+    h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
+      margin-top: 0;
     }
-    .countdown-section {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(to bottom, #fff0f6, #ffffff);
+    ul {
+      padding-left: 20px;
     }
-    #countdown {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #d81b60;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    #countdown div {
-      background: #fce4ec;
-      border-radius: 12px;
-      padding: 10px 15px;
-      box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
-      transition: transform 0.3s ease;
-    }
-    #countdown div:hover {
-      transform: scale(1.05);
-    }
-    #countdown span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 5px;
-      color: #880e4f;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    /* Форма подтверждения */
+    /* Форма */
     form {
       display: flex;
       flex-direction: column;
@@ -110,6 +81,75 @@
     button:hover {
       background-color: #880e4f;
     }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+      transition: color 0.5s;
+    }
+
+    /* Тёмная тема */
+    body.dark {
+      background: #1e1e2f;
+      color: #ddd;
+    }
+    body.dark header {
+      background-color: #2c2c3e;
+      background-image: none;
+      color: #f0e6f6;
+    }
+    body.dark section {
+      background: #2c2c3e;
+      color: #ddd;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    }
+    body.dark h2 {
+      color: #e880b3;
+    }
+    body.dark label {
+      color: #e880b3;
+    }
+    body.dark input[type="text"], 
+    body.dark input[type="email"], 
+    body.dark select {
+      background: #44445c;
+      color: #eee;
+      border: 1px solid #e880b3;
+    }
+    body.dark button {
+      background-color: #e880b3;
+      color: #2c2c3e;
+    }
+    body.dark button:hover {
+      background-color: #c05088;
+      color: white;
+    }
+    body.dark footer {
+      color: #aaa;
+    }
+
+    /* Кнопка переключения темы */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #c2185b;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+      box-shadow: 0 0 8px rgba(194,24,91,0.7);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+    .theme-toggle:hover {
+      background-color: #880e4f;
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
@@ -117,31 +157,21 @@
       header p {
         font-size: 1.2rem;
       }
-      #countdown {
-        flex-direction: column;
-        gap: 10px;
+      section {
+        padding: 30px 15px;
+        margin-bottom: 20px;
       }
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" aria-label="Переключить тему">🌓</button>
+
   <header>
     <h1>Приглашение на свадьбу</h1>
     <p>Ильи и Марии</p>
     <p>7 августа, четверг, 16:00</p>
   </header>
-
-  <section class="countdown-section">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #c2185b; margin-bottom: 20px;">
-      До свадьбы осталось:
-    </h2>
-    <div id="countdown">
-      <div><span id="days">--</span><div>дней</div></div>
-      <div><span id="hours">--</span><div>часов</div></div>
-      <div><span id="minutes">--</span><div>минут</div></div>
-      <div><span id="seconds">--</span><div>секунд</div></div>
-    </div>
-  </section>
 
   <section class="info">
     <h2>Место проведения</h2>
@@ -172,10 +202,10 @@
     <form action="https://formspree.io/f/mgvkzbgo" method="POST">
       <label for="name">Ваше имя:</label>
       <input type="text" id="name" name="name" required placeholder="Введите ваше имя" />
-      
+
       <label for="email">Ваша почта:</label>
       <input type="email" id="email" name="_replyto" required placeholder="example@mail.com" />
-      
+
       <label for="attendance">Вы придёте?</label>
       <select id="attendance" name="attendance" required>
         <option value="">Выберите вариант</option>
@@ -200,30 +230,22 @@
   </footer>
 
   <script>
-    const weddingDate = new Date("2025-08-07T16:00:00");
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    const body = document.body;
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = weddingDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    // Проверка сохранённой темы
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    themeToggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.removeItem('theme');
+      }
+    });
   </script>
 </body>
 </html>
