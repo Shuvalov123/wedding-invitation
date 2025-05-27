@@ -1,58 +1,162 @@
-<section class="countdown-section" style="text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #fff0f6, #ffffff);">
-  <h2 style="font-size: 2.5rem; color: #c2185b; margin-bottom: 20px; font-family: 'Playfair Display', serif;">
-    До свадьбы осталось:
-  </h2>
-  <div id="countdown" style="display: flex; justify-content: center; gap: 20px; font-size: 1.8rem; font-weight: bold; color: #d81b60; font-family: 'Segoe UI', sans-serif;">
-    <div><span id="days">--</span><div>дней</div></div>
-    <div><span id="hours">--</span><div>часов</div></div>
-    <div><span id="minutes">--</span><div>минут</div></div>
-    <div><span id="seconds">--</span><div>секунд</div></div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Приглашение на свадьбу</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #fff0f6, #ffffff);
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background-image: url('https://images.unsplash.com/photo-1525097487452-6278ff080c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+    header p {
+      font-size: 1.5rem;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .info, .program, .contacts {
+      background: #ffffffd9;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .info h2, .program h2, .contacts h2 {
+      font-family: 'Playfair Display', serif;
+      color: #c2185b;
+    }
+    .countdown-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #fff0f6, #ffffff);
+    }
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d81b60;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #countdown div {
+      background: #fce4ec;
+      border-radius: 12px;
+      padding: 10px 15px;
+      box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
+      transition: transform 0.3s ease;
+    }
+    #countdown div:hover {
+      transform: scale(1.05);
+    }
+    #countdown span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+      color: #880e4f;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Приглашение на свадьбу</h1>
+    <p>Илья и Мария</p>
+    <p>7 августа, четверг, 16:00</p>
+  </header>
 
-<script>
-  const weddingDate = new Date("2025-08-07T16:00:00");
+  <section class="countdown-section">
+    <h2 style="font-size: 2.5rem; color: #c2185b; margin-bottom: 20px; font-family: 'Playfair Display', serif;">
+      До свадьбы осталось:
+    </h2>
+    <div id="countdown">
+      <div><span id="days">--</span><div>дней</div></div>
+      <div><span id="hours">--</span><div>часов</div></div>
+      <div><span id="minutes">--</span><div>минут</div></div>
+      <div><span id="seconds">--</span><div>секунд</div></div>
+    </div>
+  </section>
 
-  function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDate - now;
+  <section class="info">
+    <h2>Место проведения</h2>
+    <p>Санаторий "Красный Холм", Ярославская область, п. Красный Холм, ул. Волжская д. 2</p>
+  </section>
 
-    if (diff <= 0) {
-      document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
-      return;
+  <section class="program">
+    <h2>Программа</h2>
+    <ul>
+      <li>16:00 Начало свадьбы</li>
+      <li>17:00 Развлекательная программа</li>
+      <li>18:00 Тосты</li>
+      <li>19:00 Фотосессия и фуршет</li>
+      <li>20:00 Вынос торта</li>
+      <li>21:00 Караоке</li>
+      <li>22:00 Танцы и веселье</li>
+      <li>23:00 Окончание мероприятия</li>
+    </ul>
+  </section>
+
+  <section class="contacts">
+    <h2>Контакты</h2>
+    <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br>
+    <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
+    <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br>
+    <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Илья и Мария. Все права защищены.
+  </footer>
+
+  <script>
+    const weddingDate = new Date("2025-08-07T16:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
-
-<style>
-  #countdown div {
-    background: #fce4ec;
-    border-radius: 12px;
-    padding: 10px 15px;
-    box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
-    transition: transform 0.3s ease;
-  }
-  #countdown div:hover {
-    transform: scale(1.05);
-  }
-  #countdown span {
-    display: block;
-    font-size: 2.2rem;
-    margin-bottom: 5px;
-    color: #880e4f;
-  }
-</style>
-
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
