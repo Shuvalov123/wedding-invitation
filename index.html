@@ -2,119 +2,345 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Приглашение на свадьбу</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Приглашение на свадьбу Ильи и Марии</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
+    /* Основные стили */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #fff0f6, #ffffff);
+      background: linear-gradient(135deg, #ffe6f0, #fff0f6);
       color: #333;
       overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
     }
+
     header {
       text-align: center;
-      padding: 60px 20px;
-      background-image: url('https://images.unsplash.com/photo-1525097487452-6278ff080c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
-      color: #fdfdfd;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-      border-bottom: 5px solid #c2185b;
-    }
-    header h1 {
-      font-size: 3.5rem;
-      margin: 0;
+      padding: 50px 20px 40px;
+      background: linear-gradient(135deg, #c2185b, #880e4f);
+      color: #fff;
       font-family: 'Playfair Display', serif;
+      position: relative;
+      z-index: 10;
     }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0 0 10px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+
     header p {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
+      margin: 5px 0;
+      text-shadow: 0 0 6px rgba(0,0,0,0.2);
     }
+
     section {
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
+      max-width: 720px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 25px 30px;
+      box-shadow: 0 8px 25px rgba(194, 24, 91, 0.2);
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #4b004b;
     }
-    .info, .program, .dresscode, .rsvp, .contacts {
-      background: #ffffffee;
-      border-radius: 25px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-    .info h2, .program h2, .dresscode h2, .rsvp h2, .contacts h2 {
+
+    section h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #d81b60;
+      padding-bottom: 8px;
     }
-    .rsvp-form input,
-    .rsvp-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
+
+    ul {
+      padding-left: 1.3rem;
+      margin: 0;
+      list-style: disc inside;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+    }
+
+    .dress-code p {
+      font-style: italic;
+      font-weight: 500;
+      color: #6a0650;
+    }
+
+    /* Форма подтверждения */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-size: 1rem;
+    }
+
+    form label {
+      font-weight: 600;
+      color: #880e4f;
+    }
+
+    form input, form select {
+      padding: 10px 15px;
       border-radius: 10px;
-      font-family: 'Roboto', sans-serif;
+      border: 2px solid #d81b60;
+      font-size: 1rem;
+      font-family: inherit;
+      outline-offset: 2px;
+      transition: border-color 0.3s;
     }
-    .rsvp-form button {
+
+    form input:focus, form select:focus {
+      border-color: #c2185b;
+    }
+
+    form button {
+      padding: 14px 20px;
       background: #c2185b;
       color: white;
-      padding: 14px 30px;
+      font-weight: 700;
       border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1.1rem;
+      border-radius: 12px;
       cursor: pointer;
-      margin-top: 15px;
+      transition: background 0.3s;
     }
-    .rsvp-form button:hover {
-      background: #ad1457;
+
+    form button:hover {
+      background: #880e4f;
     }
-    .form-success {
-      color: green;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-top: 20px;
+
+    /* Контакты */
+    .contacts a {
+      color: #c2185b;
+      text-decoration: none;
+      transition: color 0.3s;
+      word-break: break-word;
     }
-    footer {
-      text-align: center;
-      padding: 25px;
-      font-size: 0.9rem;
-      color: #888;
-      background-color: #fce4ec;
-      border-top: 2px solid #c2185b;
+
+    .contacts a:hover {
+      color: #880e4f;
+      text-decoration: underline;
+    }
+
+    /* Кнопки переключения ночного режима и музыки */
+    #darkModeToggle, #musicToggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #c2185b;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(194,24,91,0.4);
+      transition: background 0.3s, color 0.3s;
+      z-index: 999;
+      user-select: none;
+    }
+
+    #musicToggle {
+      right: 65px;
+    }
+
+    #darkModeToggle:hover, #musicToggle:hover {
+      background: #880e4f;
+    }
+
+    /* Бегущая чиби-пара */
+    #chibi {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 130px;
+      z-index: 500;
+      user-select: none;
+      pointer-events: none;
+      animation: runCycle 2s steps(8) infinite;
     }
 
     /* Падающие лепестки роз */
     .petal {
       position: fixed;
-      top: -10px;
-      width: 20px;
-      height: 20px;
-      background-image: url('https://i.imgur.com/IaUrttj.png');
-      background-size: cover;
+      width: 18px;
+      height: 18px;
+      background: url('https://i.postimg.cc/SxYnTqFg/petal.png') no-repeat center center / contain;
       pointer-events: none;
-      animation: fall linear infinite;
-      z-index: 9999;
+      opacity: 0.8;
+      user-select: none;
+      animation-timing-function: linear;
+      will-change: transform, top, left;
+      z-index: 50;
     }
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
+
+    /* Свечи */
+    .candle {
+      position: fixed;
+      bottom: 10px;
+      width: 20px;
+      height: 60px;
+      background: linear-gradient(180deg, #ffe1e7 0%, #c2185b 60%);
+      border-radius: 10px 10px 5px 5px;
+      box-shadow:
+        0 0 15px 5px rgba(255, 105, 180, 0.6),
+        inset 0 0 10px 2px #ffcee9;
+      animation: flicker 2.5s infinite alternate;
+      z-index: 40;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .candle:first-child {
+      left: 15px;
+    }
+    .candle:last-child {
+      right: 15px;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.8; box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7), inset 0 0 10px 2px #ffcee9;}
+      50% { opacity: 1; box-shadow: 0 0 25px 8px rgba(255, 105, 180, 1), inset 0 0 15px 5px #ffcee9;}
+      100% { opacity: 0.8; box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7), inset 0 0 10px 2px #ffcee9;}
+    }
+
+    /* Ночной режим */
+    body.dark-mode {
+      background: linear-gradient(135deg, #2c0b2e, #440d3f);
+      color: #f0d6e6;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.dark-mode section {
+      background: rgba(50, 0, 40, 0.85);
+      color: #f0d6e6;
+      box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
+    }
+
+    body.dark-mode header {
+      background: linear-gradient(135deg, #440d3f, #270027);
+      color: #f8c9e8;
+      text-shadow: 0 0 12px rgba(255, 150, 190, 0.7);
+    }
+
+    body.dark-mode form input, 
+    body.dark-mode form select {
+      background: #55003a;
+      border-color: #d48cb1;
+      color: #f9d7e5;
+    }
+
+    body.dark-mode form input::placeholder,
+    body.dark-mode form select::placeholder {
+      color: #f2cde3;
+    }
+
+    body.dark-mode form input:focus,
+    body.dark-mode form select:focus {
+      border-color: #f7a9c0;
+    }
+
+    body.dark-mode form button {
+      background: #d48cb1;
+      color: #3b0030;
+    }
+    body.dark-mode form button:hover {
+      background: #b05a88;
+      color: #f6e0f0;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
       }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      section {
+        margin: 20px 15px;
+        padding: 20px 20px;
+        font-size: 1rem;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+      }
+
+      form button {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+
+      #chibi {
+        width: 90px;
+        bottom: 15px;
+        left: 8px;
+      }
+
+      .candle:first-child {
+        left: 8px;
+      }
+
+      .candle:last-child {
+        right: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.7rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        margin: 15px 10px;
+        padding: 15px 15px;
+        font-size: 0.9rem;
+      }
+
+      section h2 {
+        font-size: 1.4rem;
+      }
+
+      form button {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+      }
+
+      #chibi {
+        width: 70px;
+        bottom: 12px;
+        left: 5px;
+      }
+
+      .candle:first-child {
+        left: 5px;
+      }
+
+      .candle:last-child {
+        right: 5px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Приглашение на свадьбу</h1>
-    <p>Ильи и Марии</p>
+    <h1>Приглашение на свадьбу Ильи и Марии</h1>
     <p>7 августа, четверг, 16:00</p>
   </header>
 
@@ -137,37 +363,36 @@
     </ul>
   </section>
 
-  <section class="dresscode">
+  <section class="dress-code">
     <h2>Дресс-код</h2>
-    <p>Нам будет приятно, если вы подберёте наряд в пастельных или светлых тонах. Но главное — чтобы вам было комфортно! Выбирайте одежду, в которой вы сможете наслаждаться праздником, танцевать и веселиться без ограничений 🌸</p>
+    <p>Любая одежда, главное — удобство и ваше внутреннее сияние. Пусть ваш наряд станет отражением радости и любви, а движения — легкими и свободными, чтобы веселье длилось всю ночь!</p>
   </section>
 
   <section class="rsvp">
-    <h2 id="rsvp-title">Подтвердите участие</h2>
-    <p id="rsvp-text">Пожалуйста, заполните форму ниже. Нам важно знать, кто будет с нами в этот день 💌</p>
-    <form action="https://formspree.io/f/mgvkzbgo" method="POST" class="rsvp-form">
-      <label>
-        Имя:<br />
-        <input type="text" name="Имя" required>
-      </label><br /><br />
-      <label>
-        Количество гостей:<br />
-        <input type="number" name="Количество гостей" min="1" max="10" required>
-      </label><br /><br />
-      <label>
-        Комментарий:<br />
-        <textarea name="Комментарий" rows="3"></textarea>
-      </label><br /><br />
+    <h2>Подтвердите своё участие</h2>
+    <form action="https://formspree.io/f/mgvkzbgo" method="POST">
+      <label for="name">Ваше имя *</label>
+      <input id="name" name="name" type="text" required placeholder="Например, Мария" />
+
+      <label for="email">Электронная почта *</label>
+      <input id="email" name="email" type="email" required placeholder="example@mail.com" />
+
+      <label for="attendance">Вы придёте?</label>
+      <select id="attendance" name="attendance" required>
+        <option value="" disabled selected>Выберите вариант</option>
+        <option value="Да, с радостью">Да, с радостью</option>
+        <option value="К сожалению, нет">К сожалению, нет</option>
+      </select>
+
       <button type="submit">Отправить</button>
     </form>
-    <p class="form-success" style="display: none;" id="form-success-text">Спасибо за подтверждение! 🌸</p>
   </section>
 
   <section class="contacts">
     <h2>Контакты</h2>
-    <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br>
+    <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br />
     <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
-    <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br>
+    <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br />
     <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
   </section>
 
@@ -175,17 +400,80 @@
     &copy; 2025 Илья и Мария. Все права защищены.
   </footer>
 
+  <!-- Картинка бегущей чиби-пары -->
+  <img id="chibi" src="https://i.postimg.cc/1RSmkZqY/chibi-running.gif" alt="Бегущая чиби-пара" />
+
+  <!-- Свечи -->
+  <div class="candle" style="left: 15px;"></div>
+  <div class="candle" style="right: 15px;"></div>
+
+  <!-- Скрипт для падающих лепестков роз -->
   <script>
-    // Падающие лепестки роз
+    const petalCount = 25;
+    const petals = [];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
     function createPetal() {
       const petal = document.createElement('div');
       petal.classList.add('petal');
-      petal.style.left = Math.random() * window.innerWidth + 'px';
-      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+      petal.style.left = random(0, window.innerWidth) + 'px';
+      petal.style.top = random(-100, -20) + 'px';
+      petal.style.animationDuration = random(7, 15) + 's';
+      petal.style.animationDelay = random(0, 15) + 's';
+      petal.style.opacity = (random(5, 10) / 10).toFixed(1);
       document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 10000);
+      petals.push(petal);
     }
-    setInterval(createPetal, 300);
+
+    function animatePetals() {
+      petals.forEach(petal => {
+        let top = parseFloat(petal.style.top);
+        if (top > window.innerHeight) {
+          petal.style.top = random(-100, -20) + 'px';
+          petal.style.left = random(0, window.innerWidth) + 'px';
+          petal.style.opacity = (random(5, 10) / 10).toFixed(1);
+          petal.style.animationDuration = random(7, 15) + 's';
+        } else {
+          petal.style.top = (top + 1) + 'px';
+          petal.style.left = (parseFloat(petal.style.left) + Math.sin(top / 20)) + 'px';
+        }
+      });
+      requestAnimationFrame(animatePetals);
+    }
+
+    for (let i = 0; i < petalCount; i++) {
+      createPetal();
+    }
+    animatePetals();
+  </script>
+
+  <!-- Скрипт ночного режима -->
+  <script>
+    const toggleDark = document.createElement('button');
+    toggleDark.id = 'darkModeToggle';
+    toggleDark.title = 'Переключить ночной режим 🌙';
+    toggleDark.textContent = '🌙';
+    document.body.appendChild(toggleDark);
+
+    toggleDark.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        toggleDark.textContent = '☀️';
+      } else {
+        localStorage.removeItem('darkMode');
+        toggleDark.textContent = '🌙';
+      }
+    });
+
+    // Инициализация ночного режима из localStorage
+    if(localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+      toggleDark.textContent = '☀️';
+    }
   </script>
 </body>
 </html>
