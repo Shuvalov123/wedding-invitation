@@ -11,91 +11,63 @@
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(to bottom, #fff0f6, #ffffff);
       color: #333;
+      overflow-x: hidden;
     }
     header {
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px;
       background-image: url('https://images.unsplash.com/photo-1525097487452-6278ff080c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
       background-position: center;
-      color: white;
+      color: #fdfdfd;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      border-bottom: 5px solid #c2185b;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin: 0;
       font-family: 'Playfair Display', serif;
     }
     header p {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     }
     section {
-      padding: 40px 20px;
-      max-width: 800px;
+      padding: 50px 20px;
+      max-width: 900px;
       margin: auto;
     }
-    .info, .program, .contacts, .dresscode, .rsvp {
-      background: #ffffffd9;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
+    .info, .program, .dresscode, .rsvp, .contacts {
+      background: #ffffffee;
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
     }
-    .info h2, .program h2, .contacts h2, .dresscode h2, .rsvp h2 {
+    .info h2, .program h2, .dresscode h2, .rsvp h2, .contacts h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
-    }
-    .countdown-section {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(to bottom, #fff0f6, #ffffff);
-    }
-    #countdown {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #d81b60;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    #countdown div {
-      background: #fce4ec;
-      border-radius: 12px;
-      padding: 10px 15px;
-      box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
-      transition: transform 0.3s ease;
-    }
-    #countdown div:hover {
-      transform: scale(1.05);
-    }
-    #countdown span {
-      display: block;
-      font-size: 2.2rem;
-      margin-bottom: 5px;
-      color: #880e4f;
-    }
-    .dresscode p {
-      font-style: italic;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
     .rsvp-form input,
     .rsvp-form textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 12px;
+      margin-top: 8px;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 10px;
       font-family: 'Roboto', sans-serif;
     }
     .rsvp-form button {
       background: #c2185b;
       color: white;
-      padding: 12px 25px;
+      padding: 14px 30px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 15px;
     }
     .rsvp-form button:hover {
       background: #ad1457;
@@ -108,9 +80,34 @@
     }
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       font-size: 0.9rem;
       color: #888;
+      background-color: #fce4ec;
+      border-top: 2px solid #c2185b;
+    }
+
+    /* Падающие лепестки роз */
+    .petal {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://i.imgur.com/IaUrttj.png');
+      background-size: cover;
+      pointer-events: none;
+      animation: fall linear infinite;
+      z-index: 9999;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -120,18 +117,6 @@
     <p>Ильи и Марии</p>
     <p>7 августа, четверг, 16:00</p>
   </header>
-
-  <section class="countdown-section">
-    <h2 style="font-size: 2.5rem; color: #c2185b; margin-bottom: 20px; font-family: 'Playfair Display', serif;">
-      До свадьбы осталось:
-    </h2>
-    <div id="countdown">
-      <div><span id="days">--</span><div>дней</div></div>
-      <div><span id="hours">--</span><div>часов</div></div>
-      <div><span id="minutes">--</span><div>минут</div></div>
-      <div><span id="seconds">--</span><div>секунд</div></div>
-    </div>
-  </section>
 
   <section class="info">
     <h2>Место проведения</h2>
@@ -154,20 +139,23 @@
 
   <section class="dresscode">
     <h2>Дресс-код</h2>
-    <p>Одежда — любая, главное, чтобы вам было удобно и комфортно. Главное — ваше настроение и улыбка. Мы рады каждому, кто будет с нами в этот день!</p>
+    <p>Нам будет приятно, если вы подберёте наряд в пастельных или светлых тонах. Но главное — чтобы вам было комфортно! Выбирайте одежду, в которой вы сможете наслаждаться праздником, танцевать и веселиться без ограничений 🌸</p>
   </section>
 
   <section class="rsvp">
     <h2 id="rsvp-title">Подтвердите участие</h2>
     <p id="rsvp-text">Пожалуйста, заполните форму ниже. Нам важно знать, кто будет с нами в этот день 💌</p>
     <form action="https://formspree.io/f/mgvkzbgo" method="POST" class="rsvp-form">
-      <label>Имя:<br />
+      <label>
+        Имя:<br />
         <input type="text" name="Имя" required>
       </label><br /><br />
-      <label>Количество гостей:<br />
+      <label>
+        Количество гостей:<br />
         <input type="number" name="Количество гостей" min="1" max="10" required>
       </label><br /><br />
-      <label>Комментарий:<br />
+      <label>
+        Комментарий:<br />
         <textarea name="Комментарий" rows="3"></textarea>
       </label><br /><br />
       <button type="submit">Отправить</button>
@@ -188,30 +176,16 @@
   </footer>
 
   <script>
-    const weddingDate = new Date("2025-08-07T16:00:00");
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = weddingDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+    // Падающие лепестки роз
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * window.innerWidth + 'px';
+      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
     }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    setInterval(createPetal, 300);
   </script>
 </body>
 </html>
