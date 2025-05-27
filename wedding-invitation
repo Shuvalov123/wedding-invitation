@@ -2,278 +2,146 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>Приглашение на свадьбу Ильи и Марии</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Приглашение на свадьбу</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+      background: linear-gradient(to bottom, #fff0f6, #ffffff);
       color: #333;
-      overflow-x: hidden;
-      transition: background 0.5s, color 0.5s;
     }
     header {
       text-align: center;
-      padding: 50px 20px 40px;
-      background: linear-gradient(135deg, #c2185b, #880e4f);
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      position: relative;
-      z-index: 10;
+      padding: 50px 20px;
+      background-image: url('https://images.unsplash.com/photo-1525097487452-6278ff080c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
     }
     header h1 {
       font-size: 3rem;
-      margin: 0 0 10px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.3);
+      margin: 0;
+      font-family: 'Playfair Display', serif;
     }
     header p {
       font-size: 1.5rem;
-      margin: 5px 0;
-      text-shadow: 0 0 6px rgba(0,0,0,0.2);
     }
     section {
-      max-width: 720px;
-      margin: 30px auto;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 18px;
-      padding: 25px 30px;
-      box-shadow: 0 8px 25px rgba(194, 24, 91, 0.2);
-      font-size: 1.1rem;
-      line-height: 1.5;
-      color: #4b004b;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
     }
-    section h2 {
+    .info, .program, .contacts, .dresscode, .confirmation {
+      background: #ffffffd9;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .info h2, .program h2, .contacts h2, .dresscode h2, .confirmation h2 {
       font-family: 'Playfair Display', serif;
       color: #c2185b;
-      font-size: 2rem;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #d81b60;
-      padding-bottom: 8px;
     }
-    ul {
-      padding-left: 1.3rem;
-      margin: 0;
-      list-style: disc inside;
+    .countdown-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #fff0f6, #ffffff);
     }
-    ul li {
-      margin-bottom: 12px;
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d81b60;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .dress-code p {
-      font-style: italic;
-      font-weight: 500;
-      color: #6a0650;
+    #countdown div {
+      background: #fce4ec;
+      border-radius: 12px;
+      padding: 10px 15px;
+      box-shadow: 0 4px 8px rgba(220, 20, 60, 0.2);
+      transition: transform 0.3s ease;
     }
+    #countdown div:hover {
+      transform: scale(1.05);
+    }
+    #countdown span {
+      display: block;
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+      color: #880e4f;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    /* Форма подтверждения */
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      font-size: 1rem;
     }
-    form label {
+    label {
       font-weight: 600;
       color: #880e4f;
     }
-    form input, form select {
-      padding: 10px 15px;
+    input[type="text"], input[type="email"], select {
+      padding: 10px;
       border-radius: 10px;
-      border: 2px solid #d81b60;
+      border: 1px solid #c2185b;
       font-size: 1rem;
-      font-family: inherit;
-      outline-offset: 2px;
-      transition: border-color 0.3s;
     }
-    form input:focus, form select:focus {
-      border-color: #c2185b;
-    }
-    form button {
-      padding: 14px 20px;
-      background: #c2185b;
+    button {
+      background-color: #c2185b;
       color: white;
-      font-weight: 700;
       border: none;
       border-radius: 12px;
+      padding: 12px;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background-color 0.3s ease;
+      font-family: 'Playfair Display', serif;
     }
-    form button:hover {
-      background: #880e4f;
+    button:hover {
+      background-color: #880e4f;
     }
-    .contacts a {
-      color: #c2185b;
-      text-decoration: none;
-      transition: color 0.3s;
-      word-break: break-word;
-    }
-    .contacts a:hover {
-      color: #880e4f;
-      text-decoration: underline;
-    }
-    #darkModeToggle {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      width: 42px;
-      height: 42px;
-      border: none;
-      border-radius: 50%;
-      background: #c2185b;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(194,24,91,0.4);
-      transition: background 0.3s, color 0.3s;
-      z-index: 999;
-      user-select: none;
-    }
-    #darkModeToggle:hover {
-      background: #880e4f;
-    }
-    /* Свечи */
-    .candle {
-      position: fixed;
-      bottom: 10px;
-      width: 20px;
-      height: 60px;
-      background: linear-gradient(180deg, #ffe1e7 0%, #c2185b 60%);
-      border-radius: 10px 10px 5px 5px;
-      box-shadow:
-        0 0 15px 5px rgba(255, 105, 180, 0.6),
-        inset 0 0 10px 2px #ffcee9;
-      animation: flicker 2.5s infinite alternate;
-      z-index: 40;
-      user-select: none;
-      pointer-events: none;
-    }
-    .candle:first-child {
-      left: 15px;
-    }
-    .candle:last-child {
-      right: 15px;
-    }
-    @keyframes flicker {
-      0% { opacity: 0.8; box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7), inset 0 0 10px 2px #ffcee9;}
-      50% { opacity: 1; box-shadow: 0 0 25px 8px rgba(255, 105, 180, 1), inset 0 0 15px 5px #ffcee9;}
-      100% { opacity: 0.8; box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7), inset 0 0 10px 2px #ffcee9;}
-    }
-    /* Ночной режим */
-    body.dark-mode {
-      background: linear-gradient(135deg, #2c0b2e, #440d3f);
-      color: #f0d6e6;
-      transition: background 0.5s, color 0.5s;
-    }
-    body.dark-mode section {
-      background: rgba(50, 0, 40, 0.85);
-      color: #f0d6e6;
-      box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
-    }
-    body.dark-mode header {
-      background: linear-gradient(135deg, #440d3f, #270027);
-      color: #f8c9e8;
-      text-shadow: 0 0 12px rgba(255, 150, 190, 0.7);
-    }
-    body.dark-mode form input, 
-    body.dark-mode form select {
-      background: #55003a;
-      border-color: #d48cb1;
-      color: #f9d7e5;
-    }
-    body.dark-mode form input::placeholder,
-    body.dark-mode form select::placeholder {
-      color: #f2cde3;
-    }
-    body.dark-mode form input:focus,
-    body.dark-mode form select:focus {
-      border-color: #f7a9c0;
-    }
-    body.dark-mode form button {
-      background: #d48cb1;
-      color: #3b0030;
-    }
-    body.dark-mode form button:hover {
-      background: #b05a88;
-      color: #f6e0f0;
-    }
-    /* Адаптивность */
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
       header p {
         font-size: 1.2rem;
       }
-      section {
-        margin: 20px 15px;
-        padding: 20px 20px;
-        font-size: 1rem;
+      #countdown {
+        flex-direction: column;
+        gap: 10px;
       }
-      section h2 {
-        font-size: 1.6rem;
-      }
-      form button {
-        padding: 12px 16px;
-        font-size: 0.95rem;
-      }
-      #chibi {
-        width: 90px;
-        bottom: 15px;
-        left: 8px;
-      }
-      .candle:first-child {
-        left: 8px;
-      }
-      .candle:last-child {
-        right: 8px;
-      }
-    }
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.7rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      #chibi {
-        width: 70px;
-        bottom: 10px;
-        left: 5px;
-      }
-      .candle:first-child {
-        left: 5px;
-      }
-      .candle:last-child {
-        right: 5px;
-      }
-    }
-    /* Падающие лепестки — CSS с SVG */
-    .petal {
-      pointer-events: none;
-      position: fixed;
-      top: -10px;
-      width: 20px;
-      height: 20px;
-      background: url('data:image/svg+xml;utf8,<svg fill="%23e91e63" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2s-3 4-3 7 1 5 3 7 3-4 3-7-1-5-3-7z"/></svg>') no-repeat center / contain;
-      opacity: 0.7;
-      animation-name: fall, sway;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-    @keyframes sway {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(15px); }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Приглашение на свадьбу Ильи и Марии</h1>
+    <h1>Приглашение на свадьбу</h1>
+    <p>Ильи и Марии</p>
     <p>7 августа, четверг, 16:00</p>
   </header>
+
+  <section class="countdown-section">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #c2185b; margin-bottom: 20px;">
+      До свадьбы осталось:
+    </h2>
+    <div id="countdown">
+      <div><span id="days">--</span><div>дней</div></div>
+      <div><span id="hours">--</span><div>часов</div></div>
+      <div><span id="minutes">--</span><div>минут</div></div>
+      <div><span id="seconds">--</span><div>секунд</div></div>
+    </div>
+  </section>
 
   <section class="info">
     <h2>Место проведения</h2>
@@ -294,24 +162,24 @@
     </ul>
   </section>
 
-  <section class="dress-code">
+  <section class="dresscode">
     <h2>Дресс-код</h2>
-    <p>Любая одежда, главное — удобство и ваше внутреннее сияние. Пусть ваш наряд станет отражением радости и любви, а движения — легкими и свободными, чтобы веселье длилось всю ночь!</p>
+    <p>Одежда любая, главное — чтобы вам было комфортно и удобно. Пусть ваш наряд отражает вашу индивидуальность и дарит свободу движения для танцев и веселья в этот незабываемый день!</p>
   </section>
 
-  <section class="rsvp">
-    <h2>Подтвердите своё участие</h2>
+  <section class="confirmation">
+    <h2>Подтверждение участия</h2>
     <form action="https://formspree.io/f/mgvkzbgo" method="POST">
-      <label for="name">Ваше имя *</label>
-      <input id="name" name="name" type="text" required placeholder="Например, Мария" />
-
-      <label for="email">Электронная почта *</label>
-      <input id="email" name="email" type="email" required placeholder="example@mail.com" />
-
+      <label for="name">Ваше имя:</label>
+      <input type="text" id="name" name="name" required placeholder="Введите ваше имя" />
+      
+      <label for="email">Ваша почта:</label>
+      <input type="email" id="email" name="_replyto" required placeholder="example@mail.com" />
+      
       <label for="attendance">Вы придёте?</label>
       <select id="attendance" name="attendance" required>
-        <option value="" disabled selected>Выберите вариант</option>
-        <option value="Да, с радостью">Да, с радостью</option>
+        <option value="">Выберите вариант</option>
+        <option value="Да, я буду">Да, я буду</option>
         <option value="К сожалению, нет">К сожалению, нет</option>
       </select>
 
@@ -322,57 +190,40 @@
   <section class="contacts">
     <h2>Контакты</h2>
     <p><strong>Жених:</strong> Шувалов Илья Александрович — <a href="tel:+79969260616">+7 (996) 926-06-16</a><br />
-    <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
+      <a href="mailto:ilasuvalov1@gmail.com">ilasuvalov1@gmail.com</a></p>
     <p><strong>Невеста:</strong> Глебушева Мария Юрьевна — <a href="tel:+79807047684">+7 (980) 704-76-84</a><br />
-    <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
+      <a href="mailto:glebusheva2005@gmail.com">glebusheva2005@gmail.com</a></p>
   </section>
 
   <footer>
     &copy; 2025 Илья и Мария. Все права защищены.
   </footer>
 
-  <!-- Бегущая чиби-пара -->
-  <img id="chibi" src="https://i.postimg.cc/1RSmkZqY/chibi-running.gif" alt="Бегущая чиби-пара" />
-
-  <!-- Свечи -->
-  <div class="candle"></div>
-  <div class="candle"></div>
-
-  <!-- Скрипт ночного режима -->
   <script>
-    const toggleDark = document.createElement('button');
-    toggleDark.id = 'darkModeToggle';
-    toggleDark.title = 'Переключить ночной режим 🌙';
-    toggleDark.textContent = '🌙';
-    document.body.appendChild(toggleDark);
+    const weddingDate = new Date("2025-08-07T16:00:00");
 
-    toggleDark.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      if(document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-        toggleDark.textContent = '☀️';
-      } else {
-        localStorage.removeItem('darkMode');
-        toggleDark.textContent = '🌙';
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "Свадьба уже началась!";
+        return;
       }
-    });
 
-    // Инициализация ночного режима из localStorage
-    if(localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-      toggleDark.textContent = '☀️';
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
     }
 
-    // Падающие лепестки
-    const petalCount = 25;
-    for(let i=0; i<petalCount; i++){
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = Math.random() * window.innerWidth + 'px';
-      petal.style.animationDuration = (7 + Math.random()*8) + 's';
-      petal.style.animationDelay = (Math.random() * 15) + 's';
-      document.body.appendChild(petal);
-    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
